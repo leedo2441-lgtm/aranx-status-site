@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>ARαNX · Bot Status</title>
+<style>
+:root{color-scheme:dark;--bg:#080c18;--panel:#10182b;--line:#24314a;--muted:#91a0bb;--text:#eef3ff;--red:#ef4444;--green:#34d399}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17233e 0,#080c18 58%);color:var(--text);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{width:min(940px,92vw);margin:0 auto;padding:34px 0 48px}.top{display:flex;align-items:center;gap:13px;margin-bottom:30px}.mark{width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#dc2626,#7f1d1d);display:grid;place-items:center;font-weight:900;font-size:23px;box-shadow:0 8px 30px #ef44442a}.brand{font-size:21px;font-weight:800;letter-spacing:.2px}.sub{color:var(--muted);font-size:13px}.pill{margin-left:auto;border:1px solid var(--line);border-radius:99px;padding:6px 11px;color:var(--muted);font-size:12px}
+h1{font-size:clamp(27px,5vw,42px);line-height:1.12;letter-spacing:-1px;margin:0 0 10px}.intro{color:var(--muted);margin:0 0 26px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{background:linear-gradient(180deg,#131d32eF,#0d1425f2);border:1px solid var(--line);border-radius:18px;padding:20px;min-width:0}.label{color:var(--muted);font-size:13px;margin-bottom:13px}.value{font-size:25px;font-weight:800;letter-spacing:-.5px;overflow-wrap:anywhere}.hint{color:var(--muted);font-size:12px;margin-top:7px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#64748b;margin-right:8px}.dot.ok{background:var(--green);box-shadow:0 0 13px #34d39980}.dot.bad{background:var(--red)}.section{margin-top:16px}.section h2{font-size:16px;margin:0 0 13px}.row{display:flex;gap:10px;align-items:center}.input{width:100%;min-width:0;background:#080e1c;border:1px solid var(--line);border-radius:11px;padding:12px 13px;color:var(--text);outline:none}.input:focus{border-color:#647da8}.btn{border:0;border-radius:11px;padding:12px 16px;background:#dc2626;color:white;font-weight:750;cursor:pointer;white-space:nowrap}.btn.secondary{background:#202c43;border:1px solid var(--line)}.message{margin-top:12px;padding:12px 14px;border-radius:12px;background:#0b1221;border:1px solid var(--line);color:var(--muted);font-size:13px;overflow-wrap:anywhere}.foot{color:#73819c;font-size:12px;margin-top:24px}.statusline{display:flex;align-items:center;gap:7px}.wide{grid-column:1/-1}@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:17px}.row{align-items:stretch;flex-direction:column}.btn{width:100%}.pill{font-size:11px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="mark">α</div><div><div class="brand">ARαNX <span style="color:#f87171">STATUS</span></div><div class="sub">Bot monitoring dashboard</div></div><div class="pill">LIVE STATUS</div></header>
+<h1>봇 상태 대시보드</h1><p class="intro">ARαNX 봇의 연결 상태와 응답 정보를 확인합니다.</p>
+<div class="grid">
+<section class="card"><div class="label">봇 상태</div><div class="value statusline"><span id="stateDot" class="dot"></span><span id="state">확인 대기</span></div><div class="hint" id="stateHint">API 주소를 설정해 주세요.</div></section>
+<section class="card"><div class="label">API 응답 시간</div><div class="value" id="latency">—</div><div class="hint">브라우저에서 측정한 왕복 시간</div></section>
+<section class="card"><div class="label">가동 시간</div><div class="value" id="uptime">—</div><div class="hint">API가 제공하는 서버 가동 시간</div></section>
+<section class="card wide"><h2>상태 API 연결</h2><p class="sub">공개 사이트에서는 127.0.0.1 주소로 사용자의 Termux에 연결할 수 없습니다. Cloudflare Tunnel에서 발급된 HTTPS 주소를 입력하세요.</p><div class="row"><input class="input" id="apiUrl" type="url" placeholder="https://your-tunnel.example.com" autocomplete="url"><button class="btn" id="connect">연결 및 확인</button></div><div class="row" style="margin-top:10px"><button class="btn secondary" id="refresh">지금 새로고침</button><button class="btn secondary" id="clear">주소 지우기</button></div><div class="message" id="message" role="status">연결 주소를 입력하면 /api/status를 확인합니다.</div></section>
+</div>
+<p class="foot">ARαNX · Status page · 자동 새로고침은 연결된 경우 30초마다 실행됩니다.</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let timer=null;
+function cleanBase(v){return v.trim().replace(/\/+$/,"").replace(/\/api\/status$/,"")}
+function duration(value){
+ if(value===null||value===undefined||value==="")return "—";
+ let n=Number(value);
+ if(!Number.isFinite(n)){return String(value)}
+ n=Math.max(0,Math.floor(n));
+ const d=Math.floor(n/86400),h=Math.floor(n%86400/3600),m=Math.floor(n%3600/60),s=n%60;
+ return [d?d+"일":null,h?h+"시간":null,m?m+"분":null,s+"초"].filter(Boolean).join(" ");
+}
+function findValue(obj,keys){
+ for(const k of keys){if(obj&&obj[k]!==undefined&&obj[k]!==null)return obj[k]}
+ return undefined;
+}
+function setStatus(ok,text,hint){
+ $("state").textContent=text;
+ $("stateHint").textContent=hint;
+ $("stateDot").className="dot "+(ok?"ok":"bad");
+}
+async function check(){
+ const base=cleanBase($("apiUrl").value);
+ if(!base){$("message").textContent="먼저 Cloudflare Tunnel HTTPS 주소를 입력해 주세요.";return}
+ const endpoint=base+"/api/status";
+ $("message").textContent="API에 연결하는 중…";
+ const start=performance.now();
+ try{
+  const response=await fetch(endpoint,{method:"GET",cache:"no-store"});
+  const elapsed=Math.round(performance.now()-start);
+  if(!response.ok)throw new Error("HTTP "+response.status);
+  const data=await response.json();
+  const running=findValue(data,["running","online","isOnline","connected","botOnline","bot_online","status"]);
+  const isUp=typeof running==="boolean"?running:typeof running==="string"?/^(online|running|connected|up|켜짐|실행중)$/i.test(running):running===1;
+  $("latency").textContent=elapsed+" ms";
+  const up=findValue(data,["uptime","uptimeSeconds","uptime_seconds","serverUptime","server_uptime","processUptime"]);
+  $("uptime").textContent=duration(up);
+  setStatus(isUp,isUp?"온라인":"API 응답 확인","상태 API 응답을 받았습니다.");
+  $("message").textContent="연결 성공 · "+endpoint+" · "+new Date().toLocaleTimeString("ko-KR");
+  localStorage.setItem("aranx-status-api",base);
+ }catch(e){
+  $("latency").textContent="—";$("uptime").textContent="—";
+  setStatus(false,"연결 실패","API 주소, 터널 실행 여부 또는 CORS 설정을 확인하세요.");
+  $("message").textContent="연결 실패: "+e.message+" · "+endpoint;
+ }
+}
+$("connect").addEventListener("click",check);
+$("refresh").addEventListener("click",check);
+$("apiUrl").addEventListener("keydown",e=>{if(e.key==="Enter")check()});
+$("clear").addEventListener("click",()=>{localStorage.removeItem("aranx-status-api");$("apiUrl").value="";$("message").textContent="저장된 API 주소를 지웠습니다.";setStatus(false,"확인 대기","API 주소를 설정해 주세요.");$("latency").textContent="—";$("uptime").textContent="—";if(timer)clearInterval(timer)});
+try{const saved=localStorage.getItem("aranx-status-api");if(saved){$("apiUrl").value=saved;check();timer=setInterval(check,30000)}}catch(e){}
+</script>
+</body>
+</html>
