@@ -22,6 +22,29 @@ a:focus-visible,button:focus-visible{outline:3px solid #56b9ff;outline-offset:3p
 @keyframes tap-ripple-expand{0%{opacity:.9;transform:translate(-50%,-50%) scale(.25)}70%{opacity:.5}100%{opacity:0;transform:translate(-50%,-50%) scale(15)}}
 @media(hover:hover) and (pointer:fine){.card:hover,.plan-card:hover{transform:translateY(-4px)}.btn:hover{transform:translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){body:after{display:none}.tap-ripple{display:none}a,button,.card,.panel,.plan-card,.btn{transition:none!important}}
+
+/* ARαNX visual polish */
+:root{--arx-blue:#267cff;--arx-cyan:#36d9ff;--arx-ink:#10213b}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background-image:radial-gradient(ellipse at 8% 0%,rgba(54,217,255,.13),transparent 34%),radial-gradient(ellipse at 92% 12%,rgba(38,124,255,.12),transparent 32%),linear-gradient(180deg,rgba(255,255,255,.55),rgba(244,249,255,.72))}
+::selection{background:rgba(54,160,255,.24);color:#10213b}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:radial-gradient(rgba(48,111,190,.13) .7px,transparent .7px);background-size:19px 19px;mask-image:linear-gradient(to bottom,black,transparent 82%);opacity:.36}
+a,button,.btn{transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+a:hover,button:hover,.btn:hover{filter:saturate(1.12)}
+.card,.panel,.plan-card{position:relative;isolation:isolate;overflow:hidden;border-color:rgba(111,160,220,.24);box-shadow:0 10px 28px rgba(30,75,130,.055),inset 0 1px rgba(255,255,255,.82);transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
+.card:before,.panel:before,.plan-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--arx-cyan),var(--arx-blue),transparent);opacity:.48;pointer-events:none}
+.card:hover,.panel:hover,.plan-card:hover{transform:translateY(-3px);border-color:rgba(38,124,255,.36);box-shadow:0 16px 34px rgba(30,75,130,.11),inset 0 1px rgba(255,255,255,.9)}
+h1,h2,h3{letter-spacing:-.035em;text-wrap:balance}
+h1{ text-shadow:0 5px 24px rgba(38,124,255,.09)}
+nav a{border-radius:12px;transition:background .2s ease,color .2s ease,transform .2s ease}
+nav a:hover{background:rgba(38,124,255,.075)}
+button:focus-visible,a:focus-visible{outline:3px solid rgba(54,160,255,.65);outline-offset:3px}
+hr{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(100,150,210,.3),transparent)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#f2f7ff}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--arx-cyan),var(--arx-blue));border:3px solid #f2f7ff;border-radius:99px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.panel,.plan-card,a,button,.btn{transition:none}.card:hover,.panel:hover,.plan-card:hover{transform:none}}
+
 </style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]] },options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head><body><header><div class="wrap nav"><a class="brand" href="index.html">AR<span class="alpha">α</span>NX <span class="version">\(-\omega\)</span></a><nav><a href="index.html">홈</a><a href="bot-types.html">봇 종류</a><a href="usage.html">사용법</a><a href="terms.html">이용약관</a><a href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">설치 방 ↗</a><a href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">개발자 ↗</a></nav></div></header><main>
 <div class="wrap hero"><div class="eyebrow">02 / TERMS & POLICY</div><h1><span class="gradient">이용약관</span><br>PLAY FAIR.</h1><p class="lead">ARαNX를 이용할 때 지켜야 할 기본 규칙입니다. 시행일: 2026년 10월 23일 · 운영자가 실제 정책에 맞게 검토해야 하는 기본 초안입니다.</p><a class="btn" href="index.html">← 홈으로 돌아가기</a></div>
 <section><div class="wrap">
