@@ -72,12 +72,12 @@ async function refreshStatus() {
     $("bot-checked").textContent = new Date().toLocaleTimeString("ko-KR");
     $("status-note").textContent = "상태 API 연결됨 · " + (data.message || "자동으로 10초마다 갱신됩니다.");
   } catch (error) {
-    $("bot-state").textContent = "연결 끊김";
-    $("status-icon").textContent = "!";
+    $("bot-state").textContent = "오프라인 · 꺼짐";
+    $("status-icon").textContent = "○";
     $("bot-ping").textContent = "측정 실패";
     $("bot-uptime").textContent = "—";
     $("bot-checked").textContent = new Date().toLocaleTimeString("ko-KR");
-    $("status-note").textContent = "상태 API에 연결할 수 없습니다. API 주소, HTTPS, CORS 및 봇 서버 실행 여부를 확인하세요.";
+    $("status-note").textContent = "상태 API 응답이 없습니다. 봇 또는 Termux 상태 확인 서버가 종료됐거나 네트워크 연결이 끊겼을 수 있습니다.";
   }
 }
 refreshStatus();
