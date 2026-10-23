@@ -27,6 +27,29 @@ a:focus-visible,button:focus-visible{outline:3px solid #56b9ff;outline-offset:3p
 @keyframes tap-ripple-expand{0%{opacity:.9;transform:translate(-50%,-50%) scale(.25)}70%{opacity:.5}100%{opacity:0;transform:translate(-50%,-50%) scale(15)}}
 @media(hover:hover) and (pointer:fine){.card:hover,.plan-card:hover{transform:translateY(-4px)}.btn:hover{transform:translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){body:after{display:none}.tap-ripple{display:none}a,button,.card,.panel,.plan-card,.btn{transition:none!important}}
+
+/* ARαNX visual polish */
+:root{--arx-blue:#267cff;--arx-cyan:#36d9ff;--arx-ink:#10213b}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background-image:radial-gradient(ellipse at 8% 0%,rgba(54,217,255,.13),transparent 34%),radial-gradient(ellipse at 92% 12%,rgba(38,124,255,.12),transparent 32%),linear-gradient(180deg,rgba(255,255,255,.55),rgba(244,249,255,.72))}
+::selection{background:rgba(54,160,255,.24);color:#10213b}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:radial-gradient(rgba(48,111,190,.13) .7px,transparent .7px);background-size:19px 19px;mask-image:linear-gradient(to bottom,black,transparent 82%);opacity:.36}
+a,button,.btn{transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+a:hover,button:hover,.btn:hover{filter:saturate(1.12)}
+.card,.panel,.plan-card{position:relative;isolation:isolate;overflow:hidden;border-color:rgba(111,160,220,.24);box-shadow:0 10px 28px rgba(30,75,130,.055),inset 0 1px rgba(255,255,255,.82);transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
+.card:before,.panel:before,.plan-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--arx-cyan),var(--arx-blue),transparent);opacity:.48;pointer-events:none}
+.card:hover,.panel:hover,.plan-card:hover{transform:translateY(-3px);border-color:rgba(38,124,255,.36);box-shadow:0 16px 34px rgba(30,75,130,.11),inset 0 1px rgba(255,255,255,.9)}
+h1,h2,h3{letter-spacing:-.035em;text-wrap:balance}
+h1{ text-shadow:0 5px 24px rgba(38,124,255,.09)}
+nav a{border-radius:12px;transition:background .2s ease,color .2s ease,transform .2s ease}
+nav a:hover{background:rgba(38,124,255,.075)}
+button:focus-visible,a:focus-visible{outline:3px solid rgba(54,160,255,.65);outline-offset:3px}
+hr{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(100,150,210,.3),transparent)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#f2f7ff}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--arx-cyan),var(--arx-blue));border:3px solid #f2f7ff;border-radius:99px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.panel,.plan-card,a,button,.btn{transition:none}.card:hover,.panel:hover,.plan-card:hover{transform:none}}
+
 </style>
 <script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]] },options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head>
 <body>
