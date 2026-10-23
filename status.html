@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f8ff">
+<meta name="description" content="ARαNX 실시간 봇 상태">
+<title>실시간 봇 상태 — ARαNX -ω</title>
+<style>
+:root{--bg:#f5f8ff;--ink:#0b1730;--muted:#60718d;--blue:#356dff;--line:#dce5f5}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(ellipse at 76% 8%,#83b8ff55,transparent 31%),radial-gradient(ellipse at 8% 35%,#b8f3ff55,transparent 28%),linear-gradient(180deg,#f8faff,#eef4ff 72%,#f8fbff);font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1000px,calc(100% - 36px));margin:auto}header{position:sticky;top:0;z-index:5;backdrop-filter:blur(18px);background:#f8faffd9;border-bottom:1px solid #dce6f6;box-shadow:0 8px 30px #183f7410}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px}.brand{font-weight:950;font-size:1.28rem;letter-spacing:.6px}.alpha{font-family:"Times New Roman",serif;font-style:italic;font-weight:500;color:var(--blue)}nav{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}nav a:hover,nav a[aria-current=page]{color:var(--blue)}.version{font-size:.58em;font-weight:850;color:#4f86ff;vertical-align:middle}
+.hero{padding:76px 0 26px}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #c9dcff;background:#ffffffa8;padding:7px 12px;border-radius:999px;color:var(--blue);font-size:.75rem;font-weight:850;letter-spacing:1.8px}.eyebrow:before{content:"";width:7px;height:7px;background:#39c7a1;border-radius:50%;box-shadow:0 0 12px #39c7a1}h1{font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.1;letter-spacing:-.055em;margin:20px 0 12px}.gradient{background:linear-gradient(105deg,#2f5dff 4%,#238eff 48%,#42cbd8 88%);-webkit-background-clip:text;background-clip:text;color:transparent}.sub{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:22px 0}.card{background:linear-gradient(145deg,#ffffffef,#f1f7ffed);border:1px solid #d5e2f6;border-radius:24px;padding:25px;box-shadow:0 12px 38px #1b4a8110;min-height:145px}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;border:1px solid #d5e6ff;background:linear-gradient(145deg,#e2eeff,#f4fdff);color:#2766f8;font-size:1.3rem;font-weight:900;margin-bottom:14px}h2{margin:0 0 5px;font-size:1.15rem}.value{margin:0;color:var(--muted);overflow-wrap:anywhere}.notice{border-radius:16px;background:linear-gradient(110deg,#e7f1ff,#e7fbff);border:1px solid #c4ddff;padding:16px 18px;color:#174a8b;margin:4px 0 45px}footer{border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);font-size:.88rem}@media(max-width:650px){.nav{align-items:flex-start;flex-direction:column;padding:13px 0}nav{gap:12px;font-size:.85rem}.grid{grid-template-columns:1fr}.hero{padding-top:52px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="index.html">AR<span class="alpha">α</span>NX <span class="version">-ω</span></a><nav><a href="index.html">홈</a><a href="status.html" aria-current="page">실시간 상태</a><a href="usage.html">사용법</a><a href="terms.html">이용약관</a><a href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">설치 방 ↗</a><a href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">개발자 ↗</a></nav></div></header>
+<main class="wrap"><div class="hero"><div class="eyebrow">LIVE SYSTEM MONITOR</div><h1>실시간 <span class="gradient">봇 상태</span></h1><p class="sub">ARαNX 상태 API를 통해 봇 연결과 가동 시간을 확인합니다. 10초마다 자동 갱신됩니다.</p></div>
+<div class="grid"><article class="card"><div class="icon" id="status-icon">…</div><h2>봇 상태</h2><p class="value" id="bot-state" role="status">상태 확인 준비 중</p></article><article class="card"><div class="icon">↯</div><h2>응답 시간</h2><p class="value" id="bot-ping">—</p></article><article class="card"><div class="icon">◷</div><h2>가동 시간</h2><p class="value" id="bot-uptime">—</p></article><article class="card"><div class="icon">⟳</div><h2>마지막 확인</h2><p class="value" id="bot-checked">—</p></article></div>
+<div class="notice" id="status-note">상태 API에 연결하는 중입니다.</div></main>
+<footer><div class="wrap">© 2026 ARαNX · 기능은 봇 버전 및 설정에 따라 달라질 수 있습니다.</div></footer>
+<script>
+const STATUS_API_URL = "https://feb-oem-indicates-lobby.trycloudflare.com/api/status";
+const REFRESH_MS = 10000;
+const $ = id => document.getElementById(id);
+function duration(value){if(typeof value==="string"&&value.trim())return value;const sec=Math.max(0,Math.floor(Number(value)||0));const d=Math.floor(sec/86400),h=Math.floor(sec%86400/3600),m=Math.floor(sec%3600/60),s=sec%60;return(d?d+"일 ":"")+(h?h+"시간 ":"")+(m?m+"분 ":"")+s+"초"}
+async function refreshStatus(){const started=performance.now();try{const response=await fetch(STATUS_API_URL,{cache:"no-store",headers:{"Accept":"application/json"}});if(!response.ok)throw new Error("HTTP "+response.status);const data=await response.json();const ping=Math.round(performance.now()-started);const running=data.running===true||data.online===true||data.connected===true||data.status==="online"||data.status==="running";$("bot-state").textContent=running?"온라인 · 켜짐":"오프라인 · 꺼짐";$("status-icon").textContent=running?"●":"○";$("bot-ping").textContent=ping+" ms";const uptime=data.uptimeSeconds??data.uptime_seconds??data.uptime??data.processUptime;$("bot-uptime").textContent=uptime==null?"API 응답에 가동 시간 값이 없음":duration(uptime);$("bot-checked").textContent=new Date().toLocaleTimeString("ko-KR");$("status-note").textContent="상태 API 연결됨 · "+(data.message||"자동으로 10초마다 갱신됩니다.")}catch(error){$("bot-state").textContent="상태 확인 실패";$("status-icon").textContent="!";$("bot-ping").textContent="측정 실패";$("bot-uptime").textContent="—";$("bot-checked").textContent=new Date().toLocaleTimeString("ko-KR");$("status-note").textContent="상태 API에 연결할 수 없습니다. Termux의 status3.py와 Cloudflare Tunnel이 실행 중인지 확인해 주세요."}}
+refreshStatus();setInterval(refreshStatus,REFRESH_MS);
+</script>
+</body></html>
