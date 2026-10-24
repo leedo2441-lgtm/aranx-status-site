@@ -61,6 +61,13 @@ body{background-image:radial-gradient(ellipse at 12% 12%,rgba(54,217,255,.20),tr
 body{position:relative;background-color:#f5f8ff!important}
 body>header,body>main,body>footer{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.arx-motion-orb{animation:none!important}.arx-motion-orb.one{transform:translate(8vw,5vh)}.arx-motion-orb.two{transform:translate(-8vw,8vh)}.arx-motion-orb.three{transform:translate(0,-5vh)}}
+
+/* Cross-device animation fallbacks and responsive tuning */
+.arx-motion-layer{display:block!important;visibility:visible!important;opacity:1!important}
+.arx-motion-orb{will-change:transform;pointer-events:none;transform:translateZ(0)}
+@supports not (filter:blur(10px)){.arx-motion-orb{filter:none;opacity:.12}}
+@media(max-width:700px){.arx-motion-orb{width:68vw;height:68vw;min-width:220px;min-height:220px;filter:blur(38px);opacity:.24}.arx-motion-orb.one{animation-duration:14s}.arx-motion-orb.two{animation-duration:17s}.arx-motion-orb.three{animation-duration:19s}}
+@media(max-width:380px){.arx-motion-orb{filter:blur(28px);opacity:.2}}
 </style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]] },options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head><body><div class="arx-motion-layer" aria-hidden="true"><span class="arx-motion-orb one"></span><span class="arx-motion-orb two"></span><span class="arx-motion-orb three"></span></div><header><div class="wrap nav"><a class="brand" href="index.html">AR<span class="alpha">α</span>NX <span class="version">\(-\omega\)</span></a><nav><a href="index.html">홈</a><a href="bot-types.html" aria-current="page">봇 종류</a><a href="status.html">실시간 상태</a><a href="usage.html">사용법</a><a href="terms.html">이용약관</a><a href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">설치 방 ↗</a><a href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">개발자 ↗</a></nav></div></header>
 <main class="wrap"><div class="hero"><div class="eyebrow">CHOOSE YOUR PLAN</div><h1>봇 <span class="gradient">종류</span></h1><p class="sub">원하는 이용 방식에 맞춰 Free 또는 Premium을 선택하세요.</p></div>
 <div class="grid"><article class="card"><div class="plan-top"><span class="plan-badge">FREE</span><span class="plan-price">무료</span></div><h2>ARαNX Free</h2><p>기본 기능을 무료로 이용할 수 있는 플랜입니다.</p><ul class="plan-list"><li>기본 봇 기능</li><li>사용법 가이드 제공</li><li>일반 이용자용</li></ul><a class="btn" href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">Free 이용 문의 ↗</a></article>
