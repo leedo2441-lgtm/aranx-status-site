@@ -68,6 +68,13 @@ hr{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(100,150
 body{position:relative;background-color:#f5f8ff!important}
 body>header,body>main,body>footer{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.arx-motion-orb{animation:none!important}.arx-motion-orb.one{transform:translate(8vw,5vh)}.arx-motion-orb.two{transform:translate(-8vw,8vh)}.arx-motion-orb.three{transform:translate(0,-5vh)}}
+
+/* Cross-device animation fallbacks and responsive tuning */
+.arx-motion-layer{display:block!important;visibility:visible!important;opacity:1!important}
+.arx-motion-orb{will-change:transform;pointer-events:none;transform:translateZ(0)}
+@supports not (filter:blur(10px)){.arx-motion-orb{filter:none;opacity:.12}}
+@media(max-width:700px){.arx-motion-orb{width:68vw;height:68vw;min-width:220px;min-height:220px;filter:blur(38px);opacity:.24}.arx-motion-orb.one{animation-duration:14s}.arx-motion-orb.two{animation-duration:17s}.arx-motion-orb.three{animation-duration:19s}}
+@media(max-width:380px){.arx-motion-orb{filter:blur(28px);opacity:.2}}
 </style>
 <script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]] },options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head>
 <body><div class="arx-motion-layer" aria-hidden="true"><span class="arx-motion-orb one"></span><span class="arx-motion-orb two"></span><span class="arx-motion-orb three"></span></div>
