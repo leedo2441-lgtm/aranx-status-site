@@ -106,7 +106,7 @@ window.__aranxRecordStatus=record;window.addEventListener("resize",drawAll);draw
 </script>
 
 <script>
-const STATUS_API_URL = "https://competition-border-firms-possible.trycloudflare.com/api/status";
+const STATUS_API_URL = "https://tracks-pipeline-environmental-idle.trycloudflare.com/api/status";
 const REFRESH_MS = 10000;
 const $ = id => document.getElementById(id);
 function duration(value){if(typeof value==="string"&&value.trim())return value;const sec=Math.max(0,Math.floor(Number(value)||0));const d=Math.floor(sec/86400),h=Math.floor(sec%86400/3600),m=Math.floor(sec%3600/60),s=sec%60;return(d?d+"일 ":"")+(h?h+"시간 ":"")+(m?m+"분 ":"")+s+"초"}
