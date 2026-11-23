@@ -1,2 +1,0 @@
-# aranx-status-site
-Hi
