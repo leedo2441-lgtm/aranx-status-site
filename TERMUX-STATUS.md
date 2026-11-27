@@ -1,4 +1,4 @@
-# ARαNX -ω Termux 상태 감시 설정
+# PROASIS -ω Termux 상태 감시 설정
 
 ## 동작 방식
 - `status-monitor.js`가 상태 API를 실행합니다.

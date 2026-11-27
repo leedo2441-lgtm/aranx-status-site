@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f5f8ff">
-<meta name="description" content="ARαNX 실시간 봇 상태">
-<title>실시간 봇 상태 — ARαNX -ω</title>
+<meta name="description" content="PROASIS — 카카오톡 봇 안내 및 서비스 센터">
+<title>실시간 봇 상태 — PROASIS -ω</title>
 <style>
 :root{--bg:#f5f8ff;--ink:#0b1730;--muted:#60718d;--blue:#356dff;--line:#dce5f5}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(ellipse at 76% 8%,#83b8ff55,transparent 31%),radial-gradient(ellipse at 8% 35%,#b8f3ff55,transparent 28%),linear-gradient(180deg,#f8faff,#eef4ff 72%,#f8fbff);font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif}
@@ -28,7 +28,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #56b9ff;outline-offset:3p
 @media(hover:hover) and (pointer:fine){.card:hover,.plan-card:hover{transform:translateY(-4px)}.btn:hover{transform:translateY(-2px)}}
 @media(prefers-reduced-motion:reduce){body:after{display:none}.tap-ripple{display:none}a,button,.card,.panel,.plan-card,.btn{transition:none!important}}
 
-/* ARαNX visual polish */
+/* PROASIS visual polish */
 :root{--arx-blue:#267cff;--arx-cyan:#36d9ff;--arx-ink:#10213b}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
 body{background-image:radial-gradient(ellipse at 8% 0%,rgba(54,217,255,.13),transparent 34%),radial-gradient(ellipse at 92% 12%,rgba(38,124,255,.12),transparent 32%),linear-gradient(180deg,rgba(255,255,255,.55),rgba(244,249,255,.72))}
@@ -108,10 +108,30 @@ table{width:100%;max-width:100%;border-collapse:collapse}
  table{display:block;overflow-x:auto}
 }
 </style>
-<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]] },options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script></head>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]] },options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><style id="proasis-refresh">
+:root{--ink:#10213d;--muted:#637895;--blue:#2868e8;--line:#d9e5f5;--bg:#f7faff}
+body{color:var(--ink)!important;background:radial-gradient(ellipse at 12% 8%,#d8edff 0,transparent 32%),radial-gradient(ellipse at 90% 20%,#dce5ff 0,transparent 34%),linear-gradient(145deg,#f9fbff,#edf4ff)!important}
+body:before{opacity:.22!important;background-size:30px 30px!important}
+header{background:#f8fbffe8!important;border-bottom:1px solid #d8e5f7!important;box-shadow:0 8px 28px #173e7510}
+.brand{display:inline-flex;align-items:center;gap:9px;color:#123b86!important;font-weight:950;letter-spacing:.12em}
+.brand img{width:35px;height:35px;object-fit:contain;filter:drop-shadow(0 4px 8px #2b6fe82a)}
+nav a{font-weight:650!important;color:#526986!important}
+nav a:hover{color:#1f62dc!important;background:#e6efff!important}
+.hero{padding-top:clamp(64px,10vw,112px)!important;padding-bottom:clamp(50px,8vw,86px)!important}
+.hero h1{letter-spacing:-.07em!important}
+.gradient{background:linear-gradient(105deg,#204ecb,#287be9 55%,#39b9d6)!important;-webkit-background-clip:text!important;background-clip:text!important}
+.eyebrow{color:#2868e8!important;border-color:#c7dcff!important;background:#ffffffb8!important}
+.btn.primary{background:linear-gradient(110deg,#2458d8,#328ce9)!important;box-shadow:0 10px 26px #2868e82e!important}
+.card,.panel,.plan-card{border-color:#d7e4f5!important;background:linear-gradient(145deg,#ffffffed,#f1f6ffed)!important;box-shadow:0 14px 38px #1e4c8210!important}
+.card:hover,.panel:hover,.plan-card:hover{border-color:#9bbcf3!important;box-shadow:0 18px 42px #285caa1b!important}
+.icon{background:linear-gradient(145deg,#e0ecff,#f2fbff)!important;color:#2868e8!important}
+footer{background:#edf4ffcc!important;border-top-color:#d7e4f5!important}
+.arx-motion-orb.one{background:#78c9ff!important}.arx-motion-orb.two{background:#7797ff!important}.arx-motion-orb.three{background:#a8d9ff!important}
+@media(max-width:650px){.brand img{width:30px;height:30px}}
+</style></head>
 <body><div class="arx-motion-layer" aria-hidden="true"><span class="arx-motion-orb one"></span><span class="arx-motion-orb two"></span><span class="arx-motion-orb three"></span></div>
-<header><div class="wrap nav"><a class="brand" href="index.html">AR<span class="alpha">α</span>NX <span class="version">\(-\omega\)</span></a><nav><a href="index.html">홈</a><a href="bot-types.html">봇 종류</a><a href="status.html" aria-current="page">실시간 상태</a><a href="usage.html">사용법</a><a href="terms.html">이용약관</a><a href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">설치 방 ↗</a><a href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">개발자 ↗</a></nav></div></header>
-<main class="wrap"><div class="hero"><div class="eyebrow" id="live-indicator">LIVE SYSTEM MONITOR</div><h1>실시간 <span class="gradient">봇 상태</span></h1><p class="sub">ARαNX 상태 API를 통해 봇 연결과 가동 시간을 확인합니다. 10초마다 자동 갱신됩니다.</p></div>
+<header><div class="wrap nav"><a class="brand" href="index.html"><img src="proasis-logo.svg" alt="">PROASIS</a><nav><a href="index.html">홈</a><a href="bot-types.html">봇 종류</a><a href="status.html" aria-current="page">실시간 상태</a><a href="usage.html">사용법</a><a href="terms.html">이용약관</a><a href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">설치 방 ↗</a><a href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">개발자 ↗</a></nav></div></header>
+<main class="wrap"><div class="hero"><div class="eyebrow" id="live-indicator">LIVE SYSTEM MONITOR</div><h1>실시간 <span class="gradient">봇 상태</span></h1><p class="sub">PROASIS 상태 API를 통해 봇 연결과 가동 시간을 확인합니다. 10초마다 자동 갱신됩니다.</p></div>
 <div class="grid"><article class="card"><div class="icon" id="status-icon">…</div><h2>봇 상태</h2><p class="value" id="bot-state" role="status">상태 확인 준비 중</p></article><article class="card"><div class="icon">↯</div><h2>응답 시간</h2><p class="value" id="bot-ping">—</p></article><article class="card"><div class="icon">◷</div><h2>가동 시간</h2><p class="value" id="bot-uptime">—</p></article><article class="card"><div class="icon">⟳</div><h2>마지막 확인</h2><p class="value" id="bot-checked">—</p></article></div>
 <div class="notice" id="status-note">상태 API에 연결하는 중입니다.</div>
 <section class="history-section" aria-label="상태 기록 그래프">
@@ -123,7 +143,7 @@ table{width:100%;max-width:100%;border-collapse:collapse}
   <p class="history-footnote">참고: 기록은 이 기기의 브라우저에 저장됩니다. 페이지를 열지 않은 시간은 직접 측정할 수 없으며, API 응답 실패만으로 봇 자체가 꺼졌다고 단정할 수 없습니다.</p>
 </section>
 </main>
-<footer><div class="wrap">© 2026 ARαNX v97 · 기능은 봇 버전 및 설정에 따라 달라질 수 있습니다.</div></footer>
+<footer><div class="wrap">© 2026 PROASIS v97 · 기능은 봇 버전 및 설정에 따라 달라질 수 있습니다.</div></footer>
 
 <script>
 (()=> {
@@ -142,7 +162,7 @@ const STATUS_API_URL = "https://compact-combat-accounting-combined.trycloudflare
 const REFRESH_MS = 10000;
 const $ = id => document.getElementById(id);
 function duration(value){if(typeof value==="string"&&value.trim())return value;const sec=Math.max(0,Math.floor(Number(value)||0));const d=Math.floor(sec/86400),h=Math.floor(sec%86400/3600),m=Math.floor(sec%3600/60),s=sec%60;return(d?d+"일 ":"")+(h?h+"시간 ":"")+(m?m+"분 ":"")+s+"초"}
-async function refreshStatus(){const started=performance.now();try{const response=await fetch(STATUS_API_URL,{cache:"no-store",headers:{"Accept":"application/json"}});if(!response.ok)throw new Error("HTTP "+response.status);const data=await response.json();const ping=Math.round(performance.now()-started);const running=data.running===true||data.online===true||data.connected===true||data.status==="online"||data.status==="running";$("bot-state").textContent=running?"온라인 · 켜짐":"오프라인 · 꺼짐";$("status-icon").textContent=running?"●":"○";$("live-indicator").classList.toggle("offline",!running);$("live-indicator").classList.remove("checking");$("bot-ping").textContent=ping+" ms";const uptime=data.uptimeSeconds??data.uptime_seconds??data.uptime??data.processUptime;$("bot-uptime").textContent=uptime==null?"API 응답에 가동 시간 값이 없음":duration(uptime);$("bot-checked").textContent=new Date().toLocaleTimeString("ko-KR");$("status-note").textContent="ARαNX v97 · 상태 API 연결됨 · "+(data.message||"자동으로 10초마다 갱신됩니다.");if(window.__aranxRecordStatus)window.__aranxRecordStatus(true,running,ping)}catch(error){$("bot-state").textContent="봇이 종료됨";$("status-icon").textContent="○";$("live-indicator").classList.add("offline");$("live-indicator").classList.remove("checking");$("bot-ping").textContent="—";$("bot-uptime").textContent="—";$("bot-checked").textContent=new Date().toLocaleTimeString("ko-KR");$("status-note").textContent="ARαNX 봇이 종료되었거나 상태 서버에 연결할 수 없습니다.";if(window.__aranxRecordStatus)window.__aranxRecordStatus(false,false,null)}}
+async function refreshStatus(){const started=performance.now();try{const response=await fetch(STATUS_API_URL,{cache:"no-store",headers:{"Accept":"application/json"}});if(!response.ok)throw new Error("HTTP "+response.status);const data=await response.json();const ping=Math.round(performance.now()-started);const running=data.running===true||data.online===true||data.connected===true||data.status==="online"||data.status==="running";$("bot-state").textContent=running?"온라인 · 켜짐":"오프라인 · 꺼짐";$("status-icon").textContent=running?"●":"○";$("live-indicator").classList.toggle("offline",!running);$("live-indicator").classList.remove("checking");$("bot-ping").textContent=ping+" ms";const uptime=data.uptimeSeconds??data.uptime_seconds??data.uptime??data.processUptime;$("bot-uptime").textContent=uptime==null?"API 응답에 가동 시간 값이 없음":duration(uptime);$("bot-checked").textContent=new Date().toLocaleTimeString("ko-KR");$("status-note").textContent="PROASIS v97 · 상태 API 연결됨 · "+(data.message||"자동으로 10초마다 갱신됩니다.");if(window.__aranxRecordStatus)window.__aranxRecordStatus(true,running,ping)}catch(error){$("bot-state").textContent="봇이 종료됨";$("status-icon").textContent="○";$("live-indicator").classList.add("offline");$("live-indicator").classList.remove("checking");$("bot-ping").textContent="—";$("bot-uptime").textContent="—";$("bot-checked").textContent=new Date().toLocaleTimeString("ko-KR");$("status-note").textContent="PROASIS 봇이 종료되었거나 상태 서버에 연결할 수 없습니다.";if(window.__aranxRecordStatus)window.__aranxRecordStatus(false,false,null)}}
 refreshStatus();setInterval(refreshStatus,REFRESH_MS);
 </script>
 
