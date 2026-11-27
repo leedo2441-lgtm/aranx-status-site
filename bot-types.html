@@ -125,12 +125,77 @@ nav a:hover{color:#1f62dc!important;background:#e6efff!important}
 footer{background:#edf4ffcc!important;border-top-color:#d7e4f5!important}
 .arx-motion-orb.one{background:#78c9ff!important}.arx-motion-orb.two{background:#7797ff!important}.arx-motion-orb.three{background:#a8d9ff!important}
 @media(max-width:650px){.brand img{width:30px;height:30px}}
-</style></head><body><div class="arx-motion-layer" aria-hidden="true"><span class="arx-motion-orb one"></span><span class="arx-motion-orb two"></span><span class="arx-motion-orb three"></span></div><header><div class="wrap nav"><a class="brand" href="index.html"><img src="proasis-logo.svg" alt="">PROASIS</a><nav><a href="index.html">홈</a><a href="bot-types.html" aria-current="page">봇 종류</a><a href="status.html">실시간 상태</a><a href="usage.html">사용법</a><a href="terms.html">이용약관</a><a href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">설치 방 ↗</a><a href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">개발자 ↗</a></nav></div></header>
+</style><style id="proasis-dark-design">
+:root{color-scheme:dark;--bg:#0b0c0e;--surface:#111316;--surface2:#171a1e;--ink:#f1f3f5;--muted:#9ba3ad;--line:#292d33;--blue:#8db8ff;--cyan:#a8caff}
+*{box-sizing:border-box}
+html{background:#0b0c0e;scroll-behavior:smooth}
+body{background:#0b0c0e!important;color:var(--ink)!important;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif!important;line-height:1.72}
+body:before,body:after,.arx-motion-layer{display:none!important}
+a{color:inherit}
+.wrap{width:min(1120px,calc(100% - 44px));margin-inline:auto}
+header{position:sticky;top:0;z-index:10;background:#0b0c0eed!important;border-bottom:1px solid #24272b!important;box-shadow:none!important;backdrop-filter:blur(18px)}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:12px 0!important;flex-direction:row!important}
+.brand{display:flex;align-items:center;gap:11px;color:#f5f6f7!important;font-size:1.12rem!important;font-weight:850;letter-spacing:.16em!important;line-height:1.15}
+.brand img{width:42px;height:42px;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.94}
+.brand:before{display:none!important}
+.brand .team-caption{display:block;color:#858b94;font-size:.62rem;font-weight:550;letter-spacing:.28em;margin-top:5px}
+nav{display:flex;align-items:center;gap:clamp(9px,1.7vw,22px);flex-wrap:wrap;color:#a6abb2!important;font-size:.83rem!important}
+nav a{padding:7px 2px;border-radius:0!important;color:#a6abb2!important}
+nav a:hover,nav a[aria-current=page]{background:none!important;color:#fff!important}
+.hero{padding:clamp(62px,9vw,112px) 0 56px!important}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#a9c9ff!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;font-size:.69rem!important;letter-spacing:.22em!important;font-weight:750}
+.eyebrow:before{background:#a9c9ff!important;box-shadow:0 0 10px #a9c9ff!important}
+h1{font-size:clamp(2.65rem,7vw,5.5rem)!important;line-height:1.04!important;letter-spacing:-.065em!important;font-weight:760!important;color:#f4f5f6!important}
+h2{color:#f1f3f5!important;font-size:clamp(1.5rem,4vw,2.3rem)!important;letter-spacing:-.045em!important}
+h3{color:#eceff2!important}
+.gradient{background:linear-gradient(110deg,#fff,#aabbd2 65%,#7899c8)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+.lead,.sub,.card p,.panel p,.panel li,.value{color:#a0a7b0!important}
+.lead{max-width:700px;font-size:1.02rem!important}
+.actions{gap:10px}
+.btn{border:1px solid #3a3f46!important;background:#15181c!important;color:#f2f4f6!important;border-radius:8px!important;padding:11px 16px!important;box-shadow:none!important}
+.btn.primary{background:#e9edf2!important;color:#11151a!important;border-color:#e9edf2!important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+section{padding:30px 0 48px!important}
+.head{margin-bottom:25px}
+.grid{gap:14px!important}
+.card,.panel,.plan-card,.feature-group,.history-card{background:#111316!important;border:1px solid #292d33!important;border-radius:14px!important;box-shadow:none!important;color:#f0f2f4!important}
+.card{padding:22px!important}
+.card:before,.card:after,.panel:before,.plan-card:before{display:none!important}
+.card:hover,.panel:hover,.plan-card:hover{transform:translateY(-2px);border-color:#59616c!important;box-shadow:0 12px 30px #0005!important}
+.icon{background:#1b2026!important;border:1px solid #303741!important;color:#c4d9f7!important;border-radius:11px!important}
+.notice{background:#151a20!important;border:1px solid #303944!important;color:#c5d2e2!important;border-radius:10px!important}
+.plan-badge{background:#202832!important;color:#c7d9f5!important}
+.plan-price,.arrow{color:#c5d9f7!important}
+footer{background:#0b0c0e!important;border-top:1px solid #292d33!important;color:#858d98!important;margin-top:48px!important}
+footer strong{color:#f1f3f5}
+code{background:#20242a!important;color:#d5e4fb!important;border:1px solid #30363e;border-radius:5px;padding:2px 5px}
+.history-card{padding:20px!important}
+.history-heading,.history-title,.history-summary{color:#e8edf3}
+.history-range{color:#aabbd2}
+.chart-frame{background:#0b0d10!important;border:1px solid #292d33;border-radius:10px}
+.history-footnote{color:#858d98!important}
+.showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.78fr);gap:32px;align-items:center;padding:12px 0 56px}
+.showcase-copy{max-width:530px}
+.showcase-kicker{color:#91baff;font-size:.68rem;letter-spacing:.2em;font-weight:800}
+.chat-preview{overflow:hidden;border:1px solid #343a42;border-radius:24px;background:#b4cadd;color:#202833;box-shadow:0 24px 65px #0007}
+.chat-top{display:flex;align-items:center;gap:10px;padding:16px 18px;background:#d9e6ef;color:#263442;font-weight:750}
+.chat-top small{font-weight:500;color:#718293}
+.chat-messages{padding:18px 16px 12px;display:grid;gap:14px;min-height:260px}
+.chat-line{display:flex;align-items:flex-start;gap:9px}
+.chat-avatar{width:30px;height:30px;border-radius:50%;background:#e9eef2;flex:none}
+.chat-bubble{max-width:88%;padding:11px 13px;border-radius:5px 17px 17px 17px;background:#fff;color:#26313b;font-size:.84rem;line-height:1.6}
+.chat-bubble.bot{border:1px solid #e6e8eb}
+.chat-bubble.user{margin-left:auto;background:#ffe95b;border-radius:17px 5px 17px 17px}
+.chat-input{padding:13px 16px;background:#fff;color:#9aa3ab;border-top:1px solid #e5e8eb}
+.team-note{margin-top:12px;color:#8f98a4;font-size:.78rem}
+@media(max-width:760px){.nav{align-items:flex-start!important;flex-direction:column!important;gap:10px}.brand img{width:36px;height:36px}nav{gap:8px 16px!important}.showcase{grid-template-columns:1fr;gap:22px;padding-bottom:35px}.chat-preview{max-width:460px;width:100%;margin:auto}.hero{padding-top:58px!important}.wrap{width:calc(100% - 34px)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style></head><body><div class="arx-motion-layer" aria-hidden="true"><span class="arx-motion-orb one"></span><span class="arx-motion-orb two"></span><span class="arx-motion-orb three"></span></div><header><div class="wrap nav"><a class="brand" href="index.html"><img src="proasis-logo.svg" alt=""><span>PROASIS<span class="team-caption">DEVELOPMENT TEAM</span></span></a><nav><a href="index.html">홈</a><a href="bot-types.html" aria-current="page">봇 종류</a><a href="status.html">실시간 상태</a><a href="usage.html">사용법</a><a href="terms.html">이용약관</a><a href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">설치 방 ↗</a><a href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">개발자 ↗</a></nav></div></header>
 <main class="wrap"><div class="hero"><div class="eyebrow">CHOOSE YOUR PLAN</div><h1>봇 <span class="gradient">종류</span></h1><p class="sub">Free, Standard 또는 Premium 중 원하는 이용 방식에 맞는 요금제를 선택하세요.</p></div>
-<section class="premium-details" id="plan-launch" aria-labelledby="plan-launch-title" style="padding:0 0 10px"><div class="card" style="border-color:#a9c8ff;background:linear-gradient(130deg,#ffffffef,#eaf3ff);box-shadow:0 16px 42px #356dff16"><div class="eyebrow">PLAN UPDATE</div><h2 id="plan-launch-title" style="margin-top:12px;font-size:clamp(1.5rem,4vw,2.1rem)">요금제 안내</h2><p class="sub">Standard 신규 출시 및 Premium 가격 변경</p><div class="grid" style="padding:0 0 12px"><article class="card"><div class="plan-top"><span class="plan-badge">STANDARD</span><span class="plan-price">₩10,000</span></div><h2>PROASIS Standard</h2><p>입장 로그 · 홍보 감지 · 추방 · 가리기 · 옾프</p></article><article class="card premium"><div class="plan-top"><span class="plan-badge">PREMIUM · UPDATED</span><span class="plan-price">₩25,000</span></div><h2>PROASIS Premium</h2><p>Standard 기능을 포함한 전체 고급 관리 기능</p></article></div><p class="notice" style="margin:8px 0 0">Standard는 입장 로그, 홍보 감지, 추방, 가리기, 옾프 기능만 포함합니다. 그 외 고급 기능은 Premium 전용입니다.</p></div></section>
-<div class="grid plan-options"><article class="card"><div class="plan-top"><span class="plan-badge">FREE</span><span class="plan-price">무료</span></div><h2>PROASIS Free</h2><p>기본 기능을 무료로 이용할 수 있는 플랜입니다.</p><ul class="plan-list"><li>기본 봇 기능</li><li>사용법 가이드 제공</li><li>일반 이용자용</li></ul><a class="btn" href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">Free 이용 문의 ↗</a></article>
-<article class="card"><div class="plan-top"><span class="plan-badge">STANDARD</span><span class="plan-price">₩10,000</span></div><h2>PROASIS Standard</h2><p>필수 관리 기능을 제공하는 요금제입니다.</p><ul class="plan-list"><li>입장 로그</li><li>홍보 감지</li><li>추방</li><li>가리기</li><li>오픈프로필(옾프)</li></ul><p>그 외 명령어와 고급 관리 기능은 Premium 전용입니다.</p><a class="btn" href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">Standard 문의 ↗</a></article>
-<article class="card premium"><div class="plan-top"><span class="plan-badge">PREMIUM</span><span class="plan-price">₩25,000</span></div><h2>PROASIS Premium</h2><p>Standard 기능을 포함해 아래의 고급 관리 기능을 제공합니다.</p><ul class="plan-list"><li>입장·퇴장 로그, 프로필/이름 변경 및 메시지 삭제 알림</li><li>금칙어 등록·삭제·목록 관리</li><li>홍보 감지, 허용·가리기 설정 및 면제 관리</li><li>추방, 들낙 감지, 입장 중지·허용, 내보내기 해제</li><li>전체 추방 및 차단 해제</li><li>도배·폭주 자동 감지</li><li>대상 프로필 사진 확인 및 오픈프로필 조회</li><li>봇 메시지 삭제, 최근 메시지 가리기, 사용자·전체 아봉</li><li>오픈프로필 기록 검색 및 유저 ID 상호 조회</li><li><code>-αλλ</code> 전체 멘션 (개발자 전용)</li></ul><a class="btn primary" href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">Premium 문의 ↗</a></article></div>
+<section class="premium-details" id="plan-launch" aria-labelledby="plan-launch-title" style="padding:0 0 10px"><div class="card" style="border-color:#a9c8ff;background:linear-gradient(130deg,#ffffffef,#eaf3ff);box-shadow:0 16px 42px #356dff16"><div class="eyebrow">PLAN UPDATE</div><h2 id="plan-launch-title" style="margin-top:12px;font-size:clamp(1.5rem,4vw,2.1rem)">요금제 안내</h2><p class="sub">Standard 신규 출시 및 Premium 가격 변경</p><div class="grid" style="padding:0 0 12px"><article class="card"><div class="plan-top"><span class="plan-badge">STANDARD</span><span class="plan-price">₩10,000</span></div><h2>ARαNX Standard</h2><p>입장 로그 · 홍보 감지 · 추방 · 가리기 · 옾프</p></article><article class="card premium"><div class="plan-top"><span class="plan-badge">PREMIUM · UPDATED</span><span class="plan-price">₩25,000</span></div><h2>ARαNX Premium</h2><p>Standard 기능을 포함한 전체 고급 관리 기능</p></article></div><p class="notice" style="margin:8px 0 0">Standard는 입장 로그, 홍보 감지, 추방, 가리기, 옾프 기능만 포함합니다. 그 외 고급 기능은 Premium 전용입니다.</p></div></section>
+<div class="grid plan-options"><article class="card"><div class="plan-top"><span class="plan-badge">FREE</span><span class="plan-price">무료</span></div><h2>ARαNX Free</h2><p>기본 기능을 무료로 이용할 수 있는 플랜입니다.</p><ul class="plan-list"><li>기본 봇 기능</li><li>사용법 가이드 제공</li><li>일반 이용자용</li></ul><a class="btn" href="https://open.kakao.com/o/piE6UKQi" target="_blank" rel="noopener">Free 이용 문의 ↗</a></article>
+<article class="card"><div class="plan-top"><span class="plan-badge">STANDARD</span><span class="plan-price">₩10,000</span></div><h2>ARαNX Standard</h2><p>필수 관리 기능을 제공하는 요금제입니다.</p><ul class="plan-list"><li>입장 로그</li><li>홍보 감지</li><li>추방</li><li>가리기</li><li>오픈프로필(옾프)</li></ul><p>그 외 명령어와 고급 관리 기능은 Premium 전용입니다.</p><a class="btn" href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">Standard 문의 ↗</a></article>
+<article class="card premium"><div class="plan-top"><span class="plan-badge">PREMIUM</span><span class="plan-price">₩25,000</span></div><h2>ARαNX Premium</h2><p>Standard 기능을 포함해 아래의 고급 관리 기능을 제공합니다.</p><ul class="plan-list"><li>입장·퇴장 로그, 프로필/이름 변경 및 메시지 삭제 알림</li><li>금칙어 등록·삭제·목록 관리</li><li>홍보 감지, 허용·가리기 설정 및 면제 관리</li><li>추방, 들낙 감지, 입장 중지·허용, 내보내기 해제</li><li>전체 추방 및 차단 해제</li><li>도배·폭주 자동 감지</li><li>대상 프로필 사진 확인 및 오픈프로필 조회</li><li>봇 메시지 삭제, 최근 메시지 가리기, 사용자·전체 아봉</li><li>오픈프로필 기록 검색 및 유저 ID 상호 조회</li><li><code>-αλλ</code> 전체 멘션 (개발자 전용)</li></ul><a class="btn primary" href="https://open.kakao.com/me/aranxdev" target="_blank" rel="noopener">Premium 문의 ↗</a></article></div>
 <section class="premium-details" aria-labelledby="premium-details-title"><div class="eyebrow">PREMIUM COMMANDS</div><h2 id="premium-details-title" style="margin:14px 0 8px;font-size:clamp(1.7rem,4vw,2.4rem)">Premium 기능 목록</h2><p class="sub">Premium은 아래 전체 기능을 제공하며, Standard는 입장 로그, 홍보 감지, 추방, 가리기, 옾프 기능으로 제한됩니다. 실제 명령어와 세부 범위는 봇 버전 및 방 권한 설정에 따라 달라질 수 있습니다.</p>
 <div class="feature-list">
 <article class="feature-group"><h3>01 · 입장 및 변경 로그</h3><p><code>?입장로그 on/off</code> · <code>?입장로그상태</code> · <code>?변경로그</code></p><p>활성화된 방에서 입·퇴장, 프로필 사진/이름 변경, 메시지 삭제 알림을 제공합니다.</p></article>
